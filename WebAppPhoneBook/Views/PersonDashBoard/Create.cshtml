@@ -11,6 +11,9 @@
 </p>
 <table class="table">
     <tr>
+        <!--<th>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </th>-->
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -55,9 +58,14 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
     <tr>
+        <!--<td>
+            @Html.DisplayFor(modelItem => item.PersonId)
+        </td>-->
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
@@ -101,12 +109,11 @@
             @Html.DisplayFor(modelItem => item.EmailId)
         </td>
         <td>
-            
-                    @Html.ActionLink("Edit", "Create", "PersonEdit") |
-                    @Html.ActionLink("Contacts", "Create", "ContactView") |
-                    @Html.ActionLink("Delete", "Delete", new { id = Person.getid(item.EmailId) })
+            @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+            @Html.ActionLink("Contacts", "Details",  new { id = item.PersonId}) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
         </td>
     </tr>
+    }
 }
-
 </table>

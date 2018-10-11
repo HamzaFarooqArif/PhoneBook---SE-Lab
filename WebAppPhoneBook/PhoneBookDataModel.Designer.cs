@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\dc\documents\visual studio 2015\Projects\WebAppPhoneBook\WebAppPhoneBook\PhoneBookDbDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Waris\Documents\Visual Studio 2015\Projects\WebAppPhoneBook\WebAppPhoneBook\PhoneBookDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

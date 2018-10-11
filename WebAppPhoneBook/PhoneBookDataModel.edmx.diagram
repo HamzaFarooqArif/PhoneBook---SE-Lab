@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c248d31e52b74828a8bb24a19924d077" Name="Diagram1">
+      <Diagram DiagramId="0315d8a90f314d159f35be31ff4d49f9" Name="Diagram1">
         <EntityTypeShape EntityType="PhoneBookDbModel.AspNetRole" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PhoneBookDbModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PhoneBookDbModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />

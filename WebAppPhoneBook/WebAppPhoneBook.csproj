@@ -198,19 +198,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Contact.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactCreateController.cs" />
@@ -224,30 +224,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Meduim.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactCreateModels.cs" />
+    <Compile Include="Models\ContactEditModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PersonCreateViewModels.cs" />
     <Compile Include="Models\PersonDashboardViewModels.cs" />
     <Compile Include="Models\PersonEditModels.cs" />
     <Compile Include="Person.cs">
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhoneBookDbDataModel.Context.cs">
+    <Compile Include="PhoneBookDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookDbDataModel.Context.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhoneBookDbDataModel.cs">
+    <Compile Include="PhoneBookDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookDbDataModel.tt</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhoneBookDbDataModel.Designer.cs">
+    <Compile Include="PhoneBookDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PhoneBookDbDataModel.edmx</DependentUpon>
+      <DependentUpon>PhoneBookDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -259,15 +261,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="PhoneBookDbDataModel.Context.tt">
+    <Content Include="PhoneBookDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneBookDbDataModel.edmx</DependentUpon>
-      <LastGenOutput>PhoneBookDbDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>PhoneBookDataModel.edmx</DependentUpon>
+      <LastGenOutput>PhoneBookDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PhoneBookDbDataModel.tt">
+    <Content Include="PhoneBookDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhoneBookDbDataModel.edmx</DependentUpon>
-      <LastGenOutput>PhoneBookDbDataModel.cs</LastGenOutput>
+      <DependentUpon>PhoneBookDataModel.edmx</DependentUpon>
+      <LastGenOutput>PhoneBookDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -276,12 +278,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="PhoneBookDbDataModel.edmx">
+    <EntityDeploy Include="PhoneBookDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PhoneBookDbDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PhoneBookDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="PhoneBookDbDataModel.edmx.diagram">
-      <DependentUpon>PhoneBookDbDataModel.edmx</DependentUpon>
+    <Content Include="PhoneBookDataModel.edmx.diagram">
+      <DependentUpon>PhoneBookDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -329,11 +331,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\PersonDashBoard\Create.cshtml" />
     <Content Include="Views\PersonCreate\Create.cshtml" />
     <Content Include="Views\PersonEdit\Create.cshtml" />
     <Content Include="Views\ContactView\Create.cshtml" />
     <Content Include="Views\ContactCreate\Create.cshtml" />
+    <Content Include="Views\PersonDashBoard\Create.cshtml" />
+    <Content Include="Views\PersonDashBoard\Edit.cshtml" />
+    <Content Include="Views\PersonDashBoard\Details.cshtml" />
+    <Content Include="Views\PersonDashBoard\Details1.cshtml" />
+    <Content Include="Views\ContactView\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

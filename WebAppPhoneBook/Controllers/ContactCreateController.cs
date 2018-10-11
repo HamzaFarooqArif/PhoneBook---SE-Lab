@@ -33,14 +33,17 @@ namespace WebAppPhoneBook.Controllers
         {
             try
             {
-                Contact c1 = new Contact();
-                c1.ContactNumber = obj.ContactNumber;
-                c1.Type = obj.Type;
-                c1.PersonId = ViewBag.id;
-                
+                Contact c = new Contact();
+                c.ContactNumber = obj.ContactNumber;
+                c.Type = obj.Type;
+                c.PersonId = Meduim.MediumData;
+                PhoneBookDbEntities db = new PhoneBookDbEntities();
+                db.Contacts.Add(c);
+                db.SaveChanges();
+                return RedirectToAction("Create", "ContactView", new {id = Meduim.MediumData });
+
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
             }
             catch
             {
@@ -51,6 +54,7 @@ namespace WebAppPhoneBook.Controllers
         // GET: ContactCreate/Edit/5
         public ActionResult Edit(int id)
         {
+           
             return View();
         }
 

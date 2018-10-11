@@ -95,7 +95,7 @@ namespace WebAppPhoneBook.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "PersonEdit");
             }
             catch
             {

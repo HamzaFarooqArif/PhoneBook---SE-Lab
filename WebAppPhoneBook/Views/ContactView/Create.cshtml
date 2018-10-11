@@ -5,12 +5,18 @@
 }
 
 <h2>Create</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create", "ContactCreate")
+    </p>
 
-<p>
-    @Html.ActionLink("Create New", "Create","ContactCreate")
-</p>
 <table class="table">
     <tr>
+        <th>
+            <!--@Html.DisplayNameFor(model => model.PersonId)-->
+        </th>
+        <th>
+            <!--@Html.DisplayNameFor(model => model.ContactId)-->
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ContactNumber)
         </th>
@@ -19,11 +25,15 @@
         </th>
         <th></th>
     </tr>
-@if (Model != null)
-{
-foreach (var item in Model)
-{
+
+@foreach (var item in Model) {
     <tr>
+        <td>
+            <!--@Html.DisplayFor(modelItem => item.PersonId)-->
+        </td>
+        <td>
+            <!--@Html.DisplayFor(modelItem => item.ContactId)-->
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ContactNumber)
         </td>
@@ -31,15 +41,10 @@ foreach (var item in Model)
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.ContactId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.ContactId  })
         </td>
     </tr>
 }
-}
 
 </table>
-<div>
-    @Html.ActionLink("Back to Person List", "Create", "PersonDashBoard")
-</div>

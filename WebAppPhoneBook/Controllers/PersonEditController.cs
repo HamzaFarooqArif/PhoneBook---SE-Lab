@@ -21,7 +21,7 @@ namespace WebAppPhoneBook.Controllers
         }
 
         // GET: PersonEdit/Create
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
             return View();
         }

@@ -18,14 +18,15 @@ namespace WebAppPhoneBook.Controllers
         // GET: PersonDashBoard/Details/5
         public ActionResult Details(int id)
         {
-            return View();
-        }
+            Meduim.MediumData = id;
+            return RedirectToAction("Create", "ContactView");          
 
+        }
+       
         // GET: PersonDashBoard/Create
         [Authorize]
         public ActionResult Create()
         {
-            int count = 0;
             string userid = "";
             string email = User.Identity.Name;
             PhoneBookDbEntities db = new PhoneBookDbEntities();
@@ -42,10 +43,10 @@ namespace WebAppPhoneBook.Controllers
             var model = new List<PersonDashboardViewModels>();
             foreach (Person obj in db.People)
             {
-                count = count + 1;
                 if (obj.AddedBy == userid)
                 {
                     PersonDashboardViewModels p = new PersonDashboardViewModels();
+                    p.PersonId = obj.PersonId;
                     p.FirstName = obj.FirstName;
                     p.MiddleName = obj.MiddleName;
                     p.LastName = obj.LastName;
@@ -93,6 +94,7 @@ namespace WebAppPhoneBook.Controllers
                     if(obj.AddedBy == userid)
                     {
                         PersonDashboardViewModels p = new PersonDashboardViewModels();
+                        p.PersonId = obj.PersonId;
                         p.FirstName = obj.FirstName;
                         p.MiddleName = obj.MiddleName;
                         p.LastName = obj.LastName;
@@ -126,17 +128,53 @@ namespace WebAppPhoneBook.Controllers
         // GET: PersonDashBoard/Edit/5
         public ActionResult Edit(int id)
         {
-            return View("Create","PersonEditModels");
+            PersonEditModels m = new PersonEditModels();
+            PhoneBookDbEntities db = new PhoneBookDbEntities();
+            foreach(Person p in db.People)
+            {
+                if(p.PersonId == id)
+                {
+                    m.FirstName = p.FirstName;
+                    m.MiddleName = p.MiddleName;
+                    m.LastName = p.LastName;
+                    m.DateOfBirth = p.DateOfBirth;
+                    m.HomeAddress = p.HomeAddress;
+                    m.HomeCity = p.HomeCity;
+                    m.FaceBookAccountId = p.FaceBookAccountId;
+                    m.LinkedInId = p.LinkedInId;
+                    m.ImagePath = p.ImagePath;
+                    m.TwitterId = p.TwitterId;
+                    m.EmailId = p.EmailId;
+                    break;
+                }
+            }
+            
+            return View(m);
         }
 
         // POST: PersonDashBoard/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PersonEditModels obj)
         {
             try
             {
-                // TODO: Add update logic here
+                PhoneBookDbEntities db = new PhoneBookDbEntities();
 
+                db.People.Find(id).FirstName = obj.FirstName;
+                db.People.Find(id).MiddleName = obj.MiddleName;
+                db.People.Find(id).LastName = obj.LastName;
+                db.People.Find(id).DateOfBirth = obj.DateOfBirth;
+                db.People.Find(id).HomeAddress = obj.HomeAddress;
+                db.People.Find(id).HomeCity = obj.HomeCity;
+                db.People.Find(id).FaceBookAccountId = obj.FaceBookAccountId;
+                db.People.Find(id).LinkedInId = obj.LinkedInId;
+                db.People.Find(id).TwitterId = obj.TwitterId;
+                db.People.Find(id).EmailId = obj.EmailId;
+                db.People.Find(id).UpdateOn = DateTime.Now;
+                db.People.Find(id).ImagePath = obj.ImagePath;
+
+                db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -148,7 +186,26 @@ namespace WebAppPhoneBook.Controllers
         // GET: PersonDashBoard/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            PhoneBookDbEntities db = new PhoneBookDbEntities();
+            foreach(Contact c in db.Contacts)
+            {
+                if(c.PersonId == id)
+                {
+                    db.Contacts.Remove(c);
+                }
+            }
+            Person myperson = new Person();
+            foreach(Person p in db.People)
+            {
+                if(p.PersonId == id)
+                {
+                    myperson = p;
+                    break;
+                }
+            }
+            db.People.Remove(myperson);
+            db.SaveChanges();
+            return RedirectToAction("Create", "PersonDashBoard");
         }
 
         // POST: PersonDashBoard/Delete/5
@@ -157,7 +214,9 @@ namespace WebAppPhoneBook.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                PhoneBookDbEntities db = new PhoneBookDbEntities();
+
+                
 
                 return RedirectToAction("Index");
             }

@@ -19,21 +19,6 @@ namespace WebAppPhoneBook
         {
             this.Contacts = new HashSet<Contact>();
         }
-        public static int getid(string email)
-        {
-            int id = 1;
-            PhoneBookDbEntities db1 = new PhoneBookDbEntities();
-           
-            foreach (Person a in db1.People)
-            {
-                if (a.EmailId == email)
-                {
-                    id = a.PersonId;
-                    break;
-                }
-            }
-            return id;
-        }
     
         public int PersonId { get; set; }
         public string FirstName { get; set; }
